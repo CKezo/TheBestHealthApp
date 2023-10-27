@@ -33,7 +33,12 @@ if gender == 1:
     elif numberChoice == 2:
             print(f"In order to maintain weight, you should eat {formula_1} calories per day")
     elif numberChoice == 3:
-            print(f"In order to gain weight, you should eat {gainCalories_1} calories per day")
+            choice = int(input("Would you like minor deficit or a major deficit? 1: minor deficit, 2: major deficit"))
+            if choice == 1:
+                print(f"In order to have a minor surplus, you would need to consume {minorgainCalories_1} calories per day.")
+            else:
+                print(f"In order to have a major deficit, you would need to consume {majorgainCalories_1} calories per day.")
+
 elif gender == 2:
     if numberChoice == 1:
             choice = int(input("Would you like minor deficit or a major deficit? 1: minor deficit, 2: major deficit"))
