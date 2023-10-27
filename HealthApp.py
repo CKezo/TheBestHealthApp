@@ -25,7 +25,7 @@ majorDeficit_2 = formula_2 - 500 #majordeficit female
 
 if gender == 1:
     if numberChoice == 1:
-            choice = int(input("Would you like minor deficit or a major deficit? 1: minor deficit, 2: major deficit"))
+            choice = int(input("Would you like minor deficit or a major deficit? 1: minor deficit, 2: major deficit: "))
             if choice == 1:
                 print(f"In order to have a minor deficit, you would need to consume {minorDeficit_1} calories per day.")
             else:
@@ -33,7 +33,7 @@ if gender == 1:
     elif numberChoice == 2:
             print(f"In order to maintain weight, you should eat {formula_1} calories per day")
     elif numberChoice == 3:
-            choice = int(input("Would you like minor surplus or a major surplus? 1: minor surplus, 2: major surplus "))
+            choice = int(input("Would you like minor surplus or a major surplus? 1: minor surplus, 2: major surplus: "))
             if choice == 1:
                 print(f"In order to have a minor surplus, you would need to consume {minorgainCalories_1} calories per day.")
             else:
@@ -41,7 +41,7 @@ if gender == 1:
 
 elif gender == 2:
     if numberChoice == 1:
-            choice = int(input("Would you like minor deficit or a major deficit? 1: minor deficit, 2: major deficit"))
+            choice = int(input("Would you like minor deficit or a major deficit? 1: minor deficit, 2: major deficit: "))
             if choice == 1:
                 print(f"In order to have a minor deficit, you would need to consume {minorDeficit_2} calories per day.")
             else:
@@ -49,7 +49,7 @@ elif gender == 2:
     elif numberChoice == 2:
         print(f"In order to maintain weight, you should eat {formula_2} calories per day")
     elif numberChoice == 3:
-        choice = int(input("Would you like minor surplus or a major surplus? 1: minor surplus, 2: major surplus "))
+        choice = int(input("Would you like minor surplus or a major surplus? 1: minor surplus, 2: major surplus: "))
         if choice == 1:
                 print(f"In order to have a minor surplus, you would need to consume {minorgainCalories_2} calories per day.")
         else:
