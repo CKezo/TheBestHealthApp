@@ -48,6 +48,4 @@ elif gender == 2:
                 print(f"In order to have a major deficit, you would need to consume {majorDeficit_2} calories per day.")
     elif numberChoice == 2:
         print(f"In order to maintain weight, you should eat {formula_2} calories per day")
-    elif numberChoice == 3:
-        print(f"In order to gain weight, you should eat {gainCalories_2} calories per day")
 
