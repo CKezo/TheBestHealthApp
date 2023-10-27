@@ -2,15 +2,23 @@ weight = int(input("Your weight: "))
 height = int(input("Your height: "))
 age = int(input("Your age: "))
 gender = int(input("Are you female 1:, or male 2: "))
+choice = int(input("Minor 1: , or Major 2: "))
 numberChoice = int(input("Would you like to lose weight 1:, maintain weight 2:, or gain weight 3: "))
 
 formula_1 = 10 * weight + 6.25 * height - 5 * age + 5 #male calories
-gainCalories_1 = 400 + formula_1
+minorgainCalories_1 = 250 + formula_1
+majorgainCalories_1 = 500 + formula_1
+
 formula_2 = 10 * weight + 6.25 * height - 5 * age - 161 #female calories
-gainCalories_2 = 400 + formula_2
+minorgainCalories_2 = 250 + formula_2
+majorgainCalories_2 = 500 + formula_2
 
-minorDeficit = 10 * weight + 6.25 * height - 5 * age - 250
 
+minorDeficit_1 = formula_1 - 250
+minorDeficit_1 = formula_1 -  500
+
+majorDeficit_2 = formula_2 -  250
+majorDeficit_2 = formula_2 - 500
 
 
 
