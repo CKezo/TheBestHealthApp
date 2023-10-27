@@ -12,21 +12,20 @@ gainCalories_2 = 400 + formula_2
 minorDeficit = 10 * weight + 6.25 * height - 5 * age - 250
 
 
-maintain_1 = 10 * weight + 6.25 * height - 5 * age + 5
-maintain_2 = 10 * weight + 6.25 * height - 5 * age - 161
+
 
 if gender == 1:
     if numberChoice == 1:
         print(f"In order to lose weight, you should eat {minorDeficit} calories per day")
     elif numberChoice == 2:
-        print(f"In order to maintain weight, you should eat {maintain_1} calories per day")
+        print(f"In order to maintain weight, you should eat {formula_1} calories per day")
     elif numberChoice == 3:
         print(f"In order to gain weight, you should eat {gainCalories_1} calories per day")
 elif gender == 2:
     if numberChoice == 1:
         print(f"In order to lose weight, you should eat {minorDeficit} calories per day")
     elif numberChoice == 2:
-        print(f"In order to maintain weight, you should eat {maintain_2} calories per day")
+        print(f"In order to maintain weight, you should eat {formula_2} calories per day")
     elif numberChoice == 3:
         print(f"In order to gain weight, you should eat {gainCalories_2} calories per day")
 
