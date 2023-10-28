@@ -92,20 +92,37 @@ def activityCalorieCalculator(weightList, calorieList, userWeight):
     caloriesBurnedForGivenWeight = b * userWeight + a
     return caloriesBurnedForGivenWeight
 
+
 print("So you wanna get your weight on point, huh? Simply give us some info below and leave all that horrible number-crunching to us, dear valuable user.")
 weight = int(input("Your weight in kilograms: "))
 height = int(input("Your height in centimeters: "))
 age = int(input("Your age: "))
-gender = int(input("Are you 1: female, or 2: male: "))
-weightGoal = int(input("Would you like to 1: lose weight, 2: maintain weight, or 3: gain weight: "))
+gender = int(input("Are you 1: male , or 2: female: "))
+numberChoice = int(input("Would you like to 1: lose weight, 2: maintain weight, or 3: gain weight: "))
 
 #"formula" vars below using Mifflin-St Jeor Equation
-maleFormula = 10 * weight + 6.25 * height - 5 * age + 5
-maleGainCalories = maleFormula + 400
-maleDeficit = maleFormula - 250
-femaleFormula = 10 * weight + 6.25 * height - 5 * age - 161
-femaleGainCalories = femaleFormula + 400
-femaleDeficit = femaleFormula - 250
+formula_1 = 10 * weight + 6.25 * height - 5 * age + 5 #male calories #maintain
+#male gaining
+minorgainCalories_1 = 250 + formula_1 #gaining minor
+majorgainCalories_1 = 500 + formula_1 #gaining major
+
+formula_2 = 10 * weight + 6.25 * height - 5 * age - 161 #female calories #maintain
+#female gaining
+minorgainCalories_2 = 250 + formula_2 #gaining minor 
+majorgainCalories_2 = 500 + formula_2 #gaining major
+
+
+minorDeficit_1 = formula_1 - 250 #minordeficit male
+majorDeficit_1 = formula_1 - 500 #majordeficit male 
+
+minorDeficit_2 = formula_2 - 250 #minordeficit female
+majorDeficit_2 = formula_2 - 500 #majordeficit female
+
+
+weightList = []
+calorieList = []
+caloriesBurnedPerDay = 0
+caloriesBurnedPerHour = 0
 
 print("Would you like to incorporate exercise into your calculations? Yes or No")
 exerciseIncluded = False
@@ -119,12 +136,6 @@ while True:
         break
     else:
         print("Invalid answer. Please enter 'Yes' or 'No'")
-
-
-weightList = []
-calorieList = []
-caloriesBurnedPerDay = 0
-caloriesBurnedPerHour = 0
 
 if exerciseIncluded:
     printActivities(exerciseCSV)
@@ -148,6 +159,82 @@ if exerciseIncluded:
             print("Please enter a number.")
     caloriesBurnedPerDay = (caloriesBurnedPerHour/60) * userMinutes
 
+if gender == 1:
+    if exerciseIncluded:
+        if numberChoice == 1:
+            choice = int(input("Would you like minor deficit or a major deficit? 1: minor deficit, 2: major deficit: "))
+            if choice == 1:
+                print(f"In order to have a minor deficit, you would need to consume {minorDeficit_1 + caloriesBurnedPerDay} calories per day.")
+            else:
+                print(f"In order to have a major deficit, you would need to consume {majorDeficit_1 + caloriesBurnedPerDay} calories per day.")
+        elif numberChoice == 2:
+            print(f"In order to maintain weight, you should eat {formula_1 + caloriesBurnedPerDay} calories per day")
+        elif numberChoice == 3:
+            choice = int(input("Would you like minor surplus or a major surplus? 1: minor surplus, 2: major surplus: "))
+            if choice == 1:
+                print(f"In order to have a minor surplus, you would need to consume {minorgainCalories_1 + caloriesBurnedPerDay} calories per day.")
+            else:
+                print(f"In order to have a major surplus, you would need to consume {majorgainCalories_1 + caloriesBurnedPerDay} calories per day.")       
+    else:
+        if numberChoice == 1:
+            choice = int(input("Would you like minor deficit or a major deficit? 1: minor deficit, 2: major deficit: "))
+            if choice == 1:
+                print(f"In order to have a minor deficit, you would need to consume {minorDeficit_1} calories per day.")
+            else:
+                print(f"In order to have a major deficit, you would need to consume {majorDeficit_1} calories per day.")
+        elif numberChoice == 2:
+            print(f"In order to maintain weight, you should eat {formula_1} calories per day")
+        elif numberChoice == 3:
+            choice = int(input("Would you like minor surplus or a major surplus? 1: minor surplus, 2: major surplus: "))
+            if choice == 1:
+                print(f"In order to have a minor surplus, you would need to consume {minorgainCalories_1} calories per day.")
+            else:
+                print(f"In order to have a major surplus, you would need to consume {majorgainCalories_1} calories per day.")
+
+elif gender == 2:
+    if exerciseIncluded:
+        if numberChoice == 1:
+            choice = int(input("Would you like minor deficit or a major deficit? 1: minor deficit, 2: major deficit: "))
+            if choice == 1:
+                print(f"In order to have a minor deficit, you would need to consume {minorDeficit_2 + caloriesBurnedPerDay} calories per day.")
+            else:
+                print(f"In order to have a major deficit, you would need to consume {majorDeficit_2 + caloriesBurnedPerDay} calories per day.")
+        elif numberChoice == 2:
+            print(f"In order to maintain weight, you should eat {formula_2 + caloriesBurnedPerDay} calories per day")
+        elif numberChoice == 3:
+            choice = int(input("Would you like minor surplus or a major surplus? 1: minor surplus, 2: major surplus: "))
+            if choice == 1:
+                    print(f"In order to have a minor surplus, you would need to consume {minorgainCalories_2 + caloriesBurnedPerDay} calories per day.")
+            else:
+                    print(f"In order to have a major surplus, you would need to consume {majorgainCalories_2 + caloriesBurnedPerDay} calories per day.")
+    else:
+        if numberChoice == 1:
+            choice = int(input("Would you like minor deficit or a major deficit? 1: minor deficit, 2: major deficit: "))
+            if choice == 1:
+                print(f"In order to have a minor deficit, you would need to consume {minorDeficit_2} calories per day.")
+            else:
+                print(f"In order to have a major deficit, you would need to consume {majorDeficit_2} calories per day.")
+        elif numberChoice == 2:
+            print(f"In order to maintain weight, you should eat {formula_2} calories per day")
+        elif numberChoice == 3:
+            choice = int(input("Would you like minor surplus or a major surplus? 1: minor surplus, 2: major surplus: "))
+            if choice == 1:
+                    print(f"In order to have a minor surplus, you would need to consume {minorgainCalories_2} calories per day.")
+            else:
+                    print(f"In order to have a major surplus, you would need to consume {majorgainCalories_2} calories per day.")
+
+#Ideas for things to add:
+#User input validation for all user input variables
+#Handling extreme cases - for example, if you put in very low weight and height and exercise a lot, the tool will tell you to eat negative calories
+#Calculating the rate at which the user will lose weight per week/month
+#Ask user if they prefer imperial or metric system and create height/weight variables based on the response. Program runs on metric variables so conversion from imperial would be needed.
+#Give an amount of calories back that is a clean integer
+
+
+
+
+#Some code I worked on below I'm keeping around for reference while I merge things.
+"""
 if gender == 1:
     if exerciseIncluded:
         if weightGoal == 1:
@@ -180,9 +267,11 @@ elif gender == 2:
             print(f"In order to gain weight, you should eat {maleGainCalories} calories per day")
 
 
-#Ideas for things to add:
-#User input validation for all user input variables
-#Losing/gaining weight at faster paces calculation
-#Handling extreme cases - for example, if you put in very low weight and height and exercise a lot, the tool will tell you to eat negative calories
-#Calculating the rate at which the user will lose weight per week/month
-#Ask user if they prefer imperial or metric system and create height/weight variables based on the response. Program runs on metric variables so conversion from imperial would be needed.
+
+maleFormula = 10 * weight + 6.25 * height - 5 * age + 5
+maleGainCalories = maleFormula + 400
+maleDeficit = maleFormula - 250
+femaleFormula = 10 * weight + 6.25 * height - 5 * age - 161
+femaleGainCalories = femaleFormula + 400
+femaleDeficit = femaleFormula - 250
+"""
