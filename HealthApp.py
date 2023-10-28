@@ -53,6 +53,7 @@ def selectActivityOptionAndReturnCaloriesBurned(filepath):
                 if row[0].strip() and all(not cell.strip() for cell in row[1:]) and startRowNum != 0:
                     endRowNum = rowNum - 1
                     break
+                endRowNum = rowNum #Need this line to handle edge case where subactivities won't display for the last major category
     
     activityNum = 1
     #Have to re-open the csv otherwise it will continue iterating where it left off in previous for loop
@@ -229,49 +230,3 @@ elif gender == 2:
 #Calculating the rate at which the user will lose weight per week/month
 #Ask user if they prefer imperial or metric system and create height/weight variables based on the response. Program runs on metric variables so conversion from imperial would be needed.
 #Give an amount of calories back that is a clean integer
-
-
-
-
-#Some code I worked on below I'm keeping around for reference while I merge things.
-"""
-if gender == 1:
-    if exerciseIncluded:
-        if weightGoal == 1:
-            print(f"In order to lose weight at a steady pace, you should eat no more than {femaleDeficit + caloriesBurnedPerDay} calories per day")
-        elif weightGoal == 2:
-            print(f"In order to maintain weight, you should eat {femaleFormula + caloriesBurnedPerDay} calories per day")
-        elif weightGoal == 3:
-            print(f"In order to gain weight, you should eat {femaleGainCalories + caloriesBurnedPerDay} calories per day")
-    else:
-        if weightGoal == 1:
-            print(f"In order to lose weight at a steady pace, you should eat no more {femaleDeficit} calories per day")
-        elif weightGoal == 2:
-            print(f"In order to maintain weight, you should eat {femaleFormula} calories per day")
-        elif weightGoal == 3:
-            print(f"In order to gain weight, you should eat {femaleGainCalories} calories per day")
-elif gender == 2:
-    if exerciseIncluded:
-        if weightGoal == 1:
-            print(f"In order to lose weight at a steady pace, you should eat {maleDeficit + caloriesBurnedPerDay} calories per day")
-        elif weightGoal == 2:
-            print(f"In order to maintain weight, you should eat {maleFormula + caloriesBurnedPerDay} calories per day")
-        elif weightGoal == 3:
-            print(f"In order to gain weight, you should eat {maleGainCalories + caloriesBurnedPerDay} calories per day")
-    else:
-        if weightGoal == 1:
-            print(f"In order to lose weight at a steady pace, you should eat {maleDeficit} calories per day")
-        elif weightGoal == 2:
-            print(f"In order to maintain weight, you should eat {maleFormula} calories per day")
-        elif weightGoal == 3:
-            print(f"In order to gain weight, you should eat {maleGainCalories} calories per day")
-
-
-
-maleFormula = 10 * weight + 6.25 * height - 5 * age + 5
-maleGainCalories = maleFormula + 400
-maleDeficit = maleFormula - 250
-femaleFormula = 10 * weight + 6.25 * height - 5 * age - 161
-femaleGainCalories = femaleFormula + 400
-femaleDeficit = femaleFormula - 250
-"""
